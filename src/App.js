@@ -1,11 +1,11 @@
 import './App.css';
-import GlobalStyle from './style/global';
+import GlobalStyle from 'style/global';
 import styled, { ThemeProvider } from "styled-components";
-import { darkMode, lightMode } from './style/theme';
+import { darkMode, lightMode } from 'style/theme';
 import React, { useState } from "react";
-import Main from "./components/Main/Main";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Main from "components/Main/Main";
+import Header from "components/Header/Header";
+import Footer from "components/Footer/Footer";
 
 const AppContainer = styled.div`
   display: flex;

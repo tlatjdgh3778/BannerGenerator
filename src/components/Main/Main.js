@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Banner from './Banner/Banner';
-import Resizing from './Resizing/Resizing';
-import SetUp from './SetUp/SetUp';
+import Banner from 'components/Main/Banner/Banner';
+import Resizing from 'components/Main/Resizing/Resizing';
+import SetUp from 'components/Main/SetUp/SetUp';
 
 const MainContainer = styled.div`
     display: flex;

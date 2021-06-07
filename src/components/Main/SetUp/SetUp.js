@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import SetInputText from './SetInputText/SetInputText';
-import SetColor from './SetColor/SetColor';
-import SetFontStyle from './SetFontStyle/SetFontStyle';
-import DownloadBtn from './BannerDownload/DownloadBtn';
+import SetInputText from 'components/Main/SetUp/SetInputText/SetInputText';
+import SetColor from 'components/Main/SetUp/SetColor/SetColor';
+import SetFontStyle from 'components/Main/SetUp/SetFontStyle/SetFontStyle';
+import DownloadBtn from 'components/Main/SetUp/BannerDownload/DownloadBtn';
 
 const SetUpContainer = styled.div`
     border: 1px solid blue;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ResizingWidth from './ResizingWidth/ResizingWidth';
-import ResizingHeight from './ResizingHeight/ResizingHeight';
+import ResizingWidth from 'components/Main/Resizing/ResizingWidth/ResizingWidth';
+import ResizingHeight from 'components/Main/Resizing/ResizingHeight/ResizingHeight';
 
 const ResizingContainer = styled.div`
     display: flex;
