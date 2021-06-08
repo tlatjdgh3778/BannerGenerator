@@ -4,6 +4,7 @@ import Banner from 'components/Main/Banner/Banner';
 import Resizing from 'components/Main/Resizing/Resizing';
 import SetUp from 'components/Main/SetUp/SetUp';
 import { SizingProvider } from 'contexts/sizing';
+import { InputProvider } from 'contexts/input';
 
 const MainContainer = styled.div`
     display: flex;
@@ -16,13 +17,15 @@ const MainContainer = styled.div`
 const Main = () => {
 
     return(
+        <InputProvider>
         <SizingProvider>
             <MainContainer>
                 <Resizing></Resizing>
                 <Banner></Banner>
                 <SetUp></SetUp>
             </MainContainer>
-        </SizingProvider>   
+        </SizingProvider>
+        </InputProvider>   
     )
 }
 export default Main;
