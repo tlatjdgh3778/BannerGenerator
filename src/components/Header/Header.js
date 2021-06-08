@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderTitle from 'components/Header/HeaderTitle/HeaderTitle';
+import HeaderTitle from 'components/Header/HeaderTitle';
 
 const HeaderContainer = styled.div`
     display: flex;

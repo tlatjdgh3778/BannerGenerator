@@ -12,6 +12,11 @@ body {
     color: #C2B7DA;
     background-color: #121212;
 }
+
+.MuiInputLabel-root {
+    background-color: white;
+}
+
 `;
 
 export default GlobalStyle;

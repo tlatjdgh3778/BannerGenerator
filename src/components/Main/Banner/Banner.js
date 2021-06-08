@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SizingConsumer } from 'contexts/sizing';
 
 const BannerContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #424242;
@@ -12,7 +14,16 @@ const BannerContainer = styled.div`
 `;
 const Banner = () => {
     return(
-        <BannerContainer>This is Banner</BannerContainer>
+        <BannerContainer>
+            <SizingConsumer>
+                {({ state }) => (
+                    <>
+                    <div>{state.width}</div>
+                    <div>{state.height}</div>
+                    </>
+                )}
+            </SizingConsumer>
+        </BannerContainer>
     );
 }
 export default Banner;
