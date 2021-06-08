@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SizingConsumer } from 'contexts/sizing';
+import { InputConsumer } from 'contexts/input';
 
 const BannerContainer = styled.div`
     display: flex;
@@ -15,11 +16,18 @@ const BannerContainer = styled.div`
 const Banner = () => {
     return(
         <BannerContainer>
+            <InputConsumer>
+                {({ state }) => (
+                    <>
+                    <div>{state.text}</div>
+                    </>
+                )}
+            </InputConsumer>
             <SizingConsumer>
                 {({ state }) => (
                     <>
-                    <div>{state.width}</div>
-                    <div>{state.height}</div>
+                    <div>WIDTH : {state.width}</div>
+                    <div>HEIGHT : {state.height}</div>
                     </>
                 )}
             </SizingConsumer>
