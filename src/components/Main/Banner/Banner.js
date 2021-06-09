@@ -37,6 +37,8 @@ const Banner = () => {
                     <>
                     <div>fontColor : {state.fontColor}</div>
                     <div>bgColor : {state.bgColor}</div>
+                    <div>fontStyle : {state.fontStyle}</div>
+                    <div>fontSize : {state.fontSize}</div>
                     </>
                 )}
             </StyleConsumer>
