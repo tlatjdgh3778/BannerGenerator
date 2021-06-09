@@ -10,12 +10,12 @@ const GlobalStyle = createGlobalStyle`
 body {
     box-sizing: border-box;
     color: #C2B7DA;
-    background-color: #121212;
-}
-
-.MuiInputLabel-root {
     background-color: white;
 }
+
+/* .MuiInputLabel-root {
+    background-color: white;
+} */
 
 `;
 
