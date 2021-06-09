@@ -5,6 +5,7 @@ import Resizing from 'components/Main/Resizing/Resizing';
 import SetUp from 'components/Main/SetUp/SetUp';
 import { SizingProvider } from 'contexts/sizing';
 import { InputProvider } from 'contexts/input';
+import { StyleProvider } from 'contexts/style';
 
 const MainContainer = styled.div`
     display: flex;
@@ -17,6 +18,7 @@ const MainContainer = styled.div`
 const Main = () => {
 
     return(
+        <StyleProvider>
         <InputProvider>
         <SizingProvider>
             <MainContainer>
@@ -25,7 +27,8 @@ const Main = () => {
                 <SetUp></SetUp>
             </MainContainer>
         </SizingProvider>
-        </InputProvider>   
+        </InputProvider>
+        </StyleProvider>   
     )
 }
 export default Main;
