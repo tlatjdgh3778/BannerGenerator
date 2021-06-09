@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SizingConsumer } from 'contexts/sizing';
 import { InputConsumer } from 'contexts/input';
+import { StyleConsumer } from 'contexts/style';
 
 const BannerContainer = styled.div`
     display: flex;
@@ -31,6 +32,14 @@ const Banner = () => {
                     </>
                 )}
             </SizingConsumer>
+            <StyleConsumer>
+                {({ state }) => (
+                    <>
+                    <div>fontColor : {state.fontColor}</div>
+                    <div>bgColor : {state.bgColor}</div>
+                    </>
+                )}
+            </StyleConsumer>
         </BannerContainer>
     );
 }
