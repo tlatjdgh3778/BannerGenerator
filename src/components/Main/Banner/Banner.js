@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { SizingConsumer } from 'contexts/sizing';
-import { InputConsumer } from 'contexts/input';
-import { StyleConsumer } from 'contexts/style';
+import { SizingConsumer, SizingContext } from 'contexts/sizing';
+import { InputConsumer, InputContext } from 'contexts/input';
+import { StyleConsumer, StyleContext } from 'contexts/style';
+import { useContext } from 'react';
 
 const BannerContainer = styled.div`
     display: flex;
@@ -15,9 +16,61 @@ const BannerContainer = styled.div`
     height: 300px;
 `;
 const Banner = () => {
+    const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
+
+    const { width, height } = useContext(SizingContext).state;
+
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+            const canvas = canvasRef.current;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+    }, [
+        height,
+        width,
+        bgColor,
+    ])
     return(
-        <BannerContainer>
-            <InputConsumer>
+        <canvas
+            ref={canvasRef}
+            className='canvasBanner'
+            width={width}
+            height={height}
+        ></canvas>
+    );
+}
+export default Banner;
+
+// return(
+//     <BannerContainer>
+//         <SizingConsumer>
+//             {({ state }) => (
+//                 <canvas
+//                 ref={canvasRef}
+                
+//                 width={state.width}
+//                 height={state.height}
+//                 ></canvas>
+//             )}
+//         </SizingConsumer>
+//         {/* <SizingConsumer>
+//             {({ state }) => (
+//                 <>
+//                 <canvas
+//                 ref={canvasRef}
+                
+//                 width={state.width}
+//                 height={state.height}
+//                 ></canvas>
+//                 </>
+//             )}
+//         </SizingConsumer> */}
+//     </BannerContainer>
+// );
+{/* <InputConsumer>
                 {({ state }) => (
                     <>
                     <div>{state.text}</div>
@@ -41,8 +94,4 @@ const Banner = () => {
                     <div>fontSize : {state.fontSize}</div>
                     </>
                 )}
-            </StyleConsumer>
-        </BannerContainer>
-    );
-}
-export default Banner;
+            </StyleConsumer> */}
