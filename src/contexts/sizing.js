@@ -25,9 +25,4 @@ const SizingProvider = ({ children }) => {
     </SizingContext.Provider>
     );
 };
-
-const SizingConsumer = SizingContext.Consumer;
-
-export { SizingProvider, SizingConsumer };
-
-export default SizingContext;
+export { SizingProvider, SizingContext };
