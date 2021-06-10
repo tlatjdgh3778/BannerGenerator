@@ -22,8 +22,4 @@ const InputProvider = ({ children }) => {
     );
 };
 
-const InputConsumer = InputContext.Consumer;
-
-export { InputProvider, InputConsumer };
-
-export default InputContext;
+export { InputProvider, InputContext };
