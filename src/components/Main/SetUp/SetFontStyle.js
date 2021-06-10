@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { StyleConsumer } from 'contexts/style';
+import { StyleConsumer, StyleContext } from 'contexts/style';
 
 const StyleContainer = styled.div`
     display: flex;
@@ -11,39 +11,37 @@ const StyleContainer = styled.div`
 `;
 
 const SetFontStyle = () => {
-    const [fontStyle, setFontStyle] = useState("roboto");
-    const [fontSize, setFontSize] = useState(14);
+    // const [fontStyle, setFontStyle] = useState("roboto");
+    // const [fontSize, setFontSize] = useState(14);
 
-    const fontStyleChange = e => {
-        setFontStyle(e.target.value);
-    }
-    const fontSizeChange = e => {
-        setFontSize(e.target.value);
-    }
+    const { state, actions } = useContext(StyleContext);
+    const fonts = ['Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Do Hyeon', 'Jua'];
+    const fontSize = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
     return(
         <StyleContainer>
-            <StyleConsumer>
-                {({ state, actions })=>(
                 <>
                 <FormControl>
                     <Select 
                     value={state.fontStyle}
-                    onChange={e => actions.setFontStyle(e.target.value)}>
-                        <MenuItem value="roboto">roboto</MenuItem>
-                        <MenuItem value="noto sans">noto sans</MenuItem>
+                    onChange={e => {
+                        actions.setFontStyle(e.target.value);
+                        console.log(e.target.value)}}>
+                        {fonts.map(font => {
+                            return <MenuItem value={font}>{font}</MenuItem>
+                        })}
                     </Select>
                 </FormControl>
                 <FormControl>
                     <Select 
                     value={state.fontSize}
                     onChange={e => actions.setFontSize(e.target.value)}>
-                        <MenuItem value="10">10</MenuItem>
-                        <MenuItem value="14">14</MenuItem>
+                        {fontSize.map(size => {
+                            return <MenuItem value={size}>{size}</MenuItem>
+                        })}
                     </Select>
                 </FormControl>
                 </>
-                )}
-            </StyleConsumer>
         </StyleContainer>
         
     );

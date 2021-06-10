@@ -26,7 +26,7 @@ const Banner = () => {
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
-            ctx.font = "30px Arial";
+            ctx.font = `${fontSize}px ${fontStyle}`;
             const x = canvas.width / 2;
             const y = canvas.height / 2;
 
@@ -35,12 +35,15 @@ const Banner = () => {
             ctx.fill();
 
             ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
             ctx.fillStyle = fontColor;
             ctx.fillText(text, x, y);
     }, [
         text,
         height,
         width,
+        fontSize,
+        fontStyle,
         fontColor,
         bgColor,
     ])
