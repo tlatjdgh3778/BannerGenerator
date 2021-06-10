@@ -50,35 +50,10 @@ const Banner = () => {
     return(
         <canvas
             ref={canvasRef}
-            className='canvasBanner'
+            id='canvasBanner'
             width={width}
             height={height}
         ></canvas>
     );
 }
 export default Banner;
-{/* <InputConsumer>
-                {({ state }) => (
-                    <>
-                    <div>{state.text}</div>
-                    </>
-                )}
-            </InputConsumer>
-            <SizingConsumer>
-                {({ state }) => (
-                    <>
-                    <div>WIDTH : {state.width}</div>
-                    <div>HEIGHT : {state.height}</div>
-                    </>
-                )}
-            </SizingConsumer>
-            <StyleConsumer>
-                {({ state }) => (
-                    <>
-                    <div>fontColor : {state.fontColor}</div>
-                    <div>bgColor : {state.bgColor}</div>
-                    <div>fontStyle : {state.fontStyle}</div>
-                    <div>fontSize : {state.fontSize}</div>
-                    </>
-                )}
-            </StyleConsumer> */}
