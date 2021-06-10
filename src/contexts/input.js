@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react';
 
 const InputContext = createContext({
     state: {
-        text: "input text",
+        text: "Sample Text🎨",
     },
     actions: {
         setText: () => {},
@@ -10,7 +10,7 @@ const InputContext = createContext({
 });
 
 const InputProvider = ({ children }) => {
-    const [text, setText] = useState("input text");
+    const [text, setText] = useState("Sample Text🎨");
 
     const value = {
         state: { text },
