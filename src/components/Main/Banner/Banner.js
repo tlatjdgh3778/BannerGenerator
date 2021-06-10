@@ -17,7 +17,7 @@ const BannerContainer = styled.div`
 `;
 const Banner = () => {
     const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
-
+    const { text } = useContext(InputContext).state;
     const { width, height } = useContext(SizingContext).state;
 
     const canvasRef = useRef(null);
@@ -26,11 +26,22 @@ const Banner = () => {
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
+            ctx.font = "30px Arial";
+            const x = canvas.width / 2;
+            const y = canvas.height / 2;
+
             ctx.fillStyle = bgColor;
             ctx.fillRect(0, 0, width, height);
+            ctx.fill();
+
+            ctx.textAlign = "center";
+            ctx.fillStyle = fontColor;
+            ctx.fillText(text, x, y);
     }, [
+        text,
         height,
         width,
+        fontColor,
         bgColor,
     ])
     return(
@@ -43,33 +54,6 @@ const Banner = () => {
     );
 }
 export default Banner;
-
-// return(
-//     <BannerContainer>
-//         <SizingConsumer>
-//             {({ state }) => (
-//                 <canvas
-//                 ref={canvasRef}
-                
-//                 width={state.width}
-//                 height={state.height}
-//                 ></canvas>
-//             )}
-//         </SizingConsumer>
-//         {/* <SizingConsumer>
-//             {({ state }) => (
-//                 <>
-//                 <canvas
-//                 ref={canvasRef}
-                
-//                 width={state.width}
-//                 height={state.height}
-//                 ></canvas>
-//                 </>
-//             )}
-//         </SizingConsumer> */}
-//     </BannerContainer>
-// );
 {/* <InputConsumer>
                 {({ state }) => (
                     <>

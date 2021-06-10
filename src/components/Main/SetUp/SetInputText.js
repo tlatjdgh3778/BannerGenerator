@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { InputConsumer } from 'contexts/input';
+import { InputContext } from 'contexts/input';
 
 const SetInputText = () => {
+    const { state, actions } = useContext(InputContext);
+    
     return(
-        <InputConsumer>
-            {({ state, actions })=>(
-                <input 
-                type="text"
-                value={state.text}
-                onChange={e => {
-                    actions.setText(e.target.value);
-                }}>
-                </input>
-            )}
-        </InputConsumer>
+        <input 
+        type="text"
+        value={state.text}
+        onChange={e => {
+            actions.setText(e.target.value);
+        }}>
+        </input>
     );
 }
 
