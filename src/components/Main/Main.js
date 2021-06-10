@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Banner from 'components/Main/Banner/Banner';
 import Resizing from 'components/Main/Resizing/Resizing';
