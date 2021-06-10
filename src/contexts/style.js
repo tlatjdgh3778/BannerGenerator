@@ -3,7 +3,7 @@ import React, {createContext, useState} from 'react';
 const StyleContext = createContext({
     state: {
         fontColor: "#fff",
-        bgColor: "#fff",
+        bgColor: "#121212",
         fontStyle: "roboto",
         fontSize: 10,
     },
@@ -17,7 +17,7 @@ const StyleContext = createContext({
 
 const StyleProvider = ({ children }) => {
     const [fontColor, setFontColor] = useState("#fff");
-    const [bgColor, setBgColor] = useState("#fff");
+    const [bgColor, setBgColor] = useState("#121212");
     const [fontStyle, setFontStyle] = useState("roboto");
     const [fontSize, setFontSize] = useState(10);
 
@@ -32,6 +32,6 @@ const StyleProvider = ({ children }) => {
 
 const StyleConsumer = StyleContext.Consumer;
 
-export { StyleProvider, StyleConsumer};
+export { StyleProvider, StyleConsumer, StyleContext};
 
-export default StyleContext;
+// export default StyleContext;
