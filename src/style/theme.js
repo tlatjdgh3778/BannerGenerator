@@ -17,9 +17,9 @@ const deviceSize = {
 
 // mediaQuery code
 const device = {
-    Mobile: `@media (min-width: ${deviceSize.Mobile})`,
-    Tablet: `@media (min-width: ${deviceSize.Tablet})`,
-    Desktop: `@media (min-width: ${deviceSize.Desktop})`,
+    Mobile: `@media (max-width: ${deviceSize.Mobile})`,
+    Tablet: `@media (max-width: ${deviceSize.Tablet})`,
+    Desktop: `@media (max-width: ${deviceSize.Desktop})`,
 }
 // darkmode
 export const darkMode = {

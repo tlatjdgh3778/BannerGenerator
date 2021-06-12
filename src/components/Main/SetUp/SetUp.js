@@ -6,9 +6,16 @@ import SetFontStyle from 'components/Main/SetUp/SetFontStyle';
 import DownloadBtn from 'components/Main/SetUp/DownloadBtn';
 
 const SetUpContainer = styled.div`
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
+
+    ${(props) => props.theme.device.Tablet} {
+        width: 480px;
+    }
+
+    ${(props) => props.theme.device.Mobile} {
+        width: 320px;
+    }
 `;
 
 const SetUp = () => {

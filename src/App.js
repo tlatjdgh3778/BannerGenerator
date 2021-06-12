@@ -10,8 +10,10 @@ import Footer from "components/Footer/Footer";
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
 `;
+
 function App() {
   const [isDark, setIsDark ] = useState(true);
 
