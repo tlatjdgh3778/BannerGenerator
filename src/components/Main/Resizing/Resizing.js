@@ -8,7 +8,6 @@ const ResizingContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 40rem;
-    border: 1px solid blue;
     padding: 1rem 0;
 
     ${(props) => props.theme.device.Tablet} {
