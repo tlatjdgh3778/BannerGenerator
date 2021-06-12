@@ -27,8 +27,8 @@ const SetFontStyle = () => {
                     onChange={e => {
                         actions.setFontStyle(e.target.value);
                         console.log(e.target.value)}}>
-                        {fonts.map(font => {
-                            return <MenuItem value={font}>{font}</MenuItem>
+                        {fonts.map((font, idx) => {
+                            return <MenuItem key={idx} value={font}>{font}</MenuItem>
                         })}
                     </Select>
                 </FormControl>
@@ -36,8 +36,8 @@ const SetFontStyle = () => {
                     <Select 
                     value={state.fontSize}
                     onChange={e => actions.setFontSize(e.target.value)}>
-                        {fontSize.map(size => {
-                            return <MenuItem value={size}>{size}</MenuItem>
+                        {fontSize.map((size, idx) => {
+                            return <MenuItem key={idx} value={size}>{size}</MenuItem>
                         })}
                     </Select>
                 </FormControl>
