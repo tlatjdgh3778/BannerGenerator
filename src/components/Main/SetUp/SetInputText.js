@@ -1,18 +1,23 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { InputContext } from 'contexts/input';
+import TextField from '@material-ui/core/TextField';
+
+const CutstomTextField = styled(TextField)`
+    background-color: white;
+`;
 
 const SetInputText = () => {
     const { state, actions } = useContext(InputContext);
     
     return(
-        <input 
-        type="text"
-        value={state.text}
-        onChange={e => {
-            actions.setText(e.target.value);
+        <CutstomTextField 
+            placeholder="Input Text Here"
+            value={state.text}
+            onChange={e => {
+                actions.setText(e.target.value);
         }}>
-        </input>
+        </CutstomTextField>
     );
 }
 
