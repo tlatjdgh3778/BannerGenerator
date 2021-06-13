@@ -8,6 +8,8 @@ import DownloadBtn from 'components/Main/SetUp/DownloadBtn';
 const SetUpContainer = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 2rem 0;
+    width: 35rem;
 
     ${(props) => props.theme.device.Tablet} {
         width: 480px;
