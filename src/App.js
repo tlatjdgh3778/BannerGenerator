@@ -1,4 +1,3 @@
-import './App.css';
 import GlobalStyle from 'style/global';
 import styled, { ThemeProvider } from "styled-components";
 import { darkMode, lightMode } from 'style/theme';
