@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 const download = () => {
     const canvas = document.getElementById('canvasBanner');
@@ -9,9 +10,12 @@ const download = () => {
     link.href = url;
     link.click();
 }
+
 const DownloadBtn = () => {
     return(
-        <button onClick={download}>download</button>
+        <Button onClick={download} variant="contained">
+            Download
+        </Button>
     );
 }
 
