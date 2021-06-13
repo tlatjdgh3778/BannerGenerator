@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 
 const CutstomTextField = styled(TextField)`
     background-color: white;
-    padding: 2rem 0;
+    margin: 1rem 0;
 `;
 
 const SetInputText = () => {
