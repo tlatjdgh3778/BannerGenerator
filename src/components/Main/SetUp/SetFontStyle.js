@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { StyleConsumer, StyleContext } from 'contexts/style';
+import { StyleContext } from 'contexts/style';
 
 const StyleContainer = styled.div`
     display: flex;
