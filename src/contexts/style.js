@@ -2,10 +2,10 @@ import React, {createContext, useState} from 'react';
 
 const StyleContext = createContext({
     state: {
-        fontColor: "#fff",
-        bgColor: "#121212",
+        fontColor: "#000",
+        bgColor: "#C2B7DA",
         fontStyle: "Roboto",
-        fontSize: 20,
+        fontSize: 40,
     },
     actions: {
         setFontColor: () => {},
@@ -16,10 +16,10 @@ const StyleContext = createContext({
 });
 
 const StyleProvider = ({ children }) => {
-    const [fontColor, setFontColor] = useState("#fff");
-    const [bgColor, setBgColor] = useState("#121212");
-    const [fontStyle, setFontStyle] = useState("Roboto");
-    const [fontSize, setFontSize] = useState(20);
+    const [fontColor, setFontColor] = useState("#000");
+    const [bgColor, setBgColor] = useState("#C2B7DA");
+    const [fontStyle, setFontStyle] = useState("Do Hyeon");
+    const [fontSize, setFontSize] = useState(40);
 
     const value = {
         state: { fontColor, bgColor, fontStyle, fontSize },
