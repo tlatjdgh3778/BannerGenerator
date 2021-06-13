@@ -16,3 +16,9 @@ React를 이용해서 만드는 Banner 생성 웹앱
 
 <p align="center"><img src="https://user-images.githubusercontent.com/71371075/120612394-1dd89500-c490-11eb-856e-22bdca660aea.png"></p>
 
+## 스크린샷
+|              메인화면 - 데스크탑          |              메인화면 - 모바일            |
+| ---------------------------------------- | ---------------------------------------- |
+| ![메인화면 - 데스크탑](./screenshot/main-desktop.png)| ![메인화면 - 모바일](./screenshot/main-mobile.png)|
+
+
