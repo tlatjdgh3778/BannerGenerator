@@ -1,7 +1,7 @@
 import GlobalStyle from 'style/global';
 import styled, { ThemeProvider } from "styled-components";
-import { darkMode, lightMode } from 'style/theme';
-import React, { useState } from "react";
+import { theme } from 'style/theme';
+import React from "react";
 import Main from "components/Main/Main";
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
@@ -14,11 +14,9 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  const [isDark, setIsDark ] = useState(true);
-
   return (
     <>
-    <ThemeProvider theme={isDark? darkMode : lightMode}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle/>
         <div className="App">
           <AppContainer>
