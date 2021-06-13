@@ -2,8 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
-    /* font-family: 'Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Do Hyeon', 'Jua', sans-serif; */
-    font-family: 'Do Hyeon', 'Roboto' sans-serif;
+    font-family:  'Do Hyeon', 'Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Jua', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -11,14 +10,32 @@ const GlobalStyle = createGlobalStyle`
 body {
     box-sizing: border-box;
     color: #C2B7DA;
-    background-color: white;
+    background-color: #EFE6E6;
 }
 
-.sketch-picker {
-    position: absolute;
-    bottom: 3rem;
-    right: -5rem;
+.MuiButtonBase-root {
+    &.MuiButton-root {
+        background-color: #C2B7DA;
+    }
+    &.MuiIconButton-root {
+        border-radius: 20%;
+        padding: 0.4rem;
+        margin: 1rem;
+    }
 }
+
+.MuiSelect-select.MuiSelect-select {
+    padding-right: 24px;
+    width: 5rem;
+}
+
+.sketch-picker  {
+    position: absolute;
+    bottom: 5rem;
+    right: -2rem;
+    width: 9rem !important;
+}
+
 .MuiInputBase-input {
     font-family: 'Do Hyeon';
     text-align: center;
