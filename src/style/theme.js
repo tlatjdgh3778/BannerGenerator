@@ -39,4 +39,5 @@ export const lightMode = {
 export const theme = {
     lightMode,
     darkMode,
+    fontColor: '#C2B7DA',
 }
