@@ -12,8 +12,8 @@ const ColorContainer = styled.div`
 `;
 
 const SetColor = () => {
-    const [fontColor, setFontColor] = useState('#fff');
-    const [bgColor, setBgColor] = useState('#121212');
+    const [fontColor, setFontColor] = useState('#000');
+    const [bgColor, setBgColor] = useState('#C2B7DA');
     const [showFontPicker, setShowFontPicker] = useState(false);
     const [showBgPicker, setShowBgPicker] = useState(false);
 
@@ -26,8 +26,9 @@ const SetColor = () => {
                     onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}
                     >
                         <BorderColorOutlinedIcon 
-                        style={{ color: `${fontColor}` }}
-                        fontSize='large'/>
+                        style={{ color: `${fontColor}`,
+                        outline:'solid', fontSize: '3rem' }}
+                        />
                     </IconButton>
                     {showFontPicker && (
                         <SketchPicker
@@ -43,8 +44,9 @@ const SetColor = () => {
                 <div style={{ position: 'relative' }}>
                     <IconButton onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
                         <FormatColorFillOutlinedIcon 
-                        style={{ color: `${bgColor}` }}
-                        fontSize='large'/>
+                        style={{ color: `${bgColor}`,
+                    outline:'solid', fontSize: '3rem' }}
+                        />
                     </IconButton>
                     {showBgPicker && (
                         <SketchPicker
