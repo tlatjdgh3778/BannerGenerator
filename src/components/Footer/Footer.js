@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, IconButton } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 const FooterContainer = styled.div`

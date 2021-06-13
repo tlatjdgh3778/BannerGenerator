@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ResizingWidth from 'components/Main/Resizing/ResizingWidth';
 import ResizingHeight from 'components/Main/Resizing/ResizingHeight';

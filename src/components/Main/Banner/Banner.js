@@ -1,20 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
-import { SizingConsumer, SizingContext } from 'contexts/sizing';
-import { InputConsumer, InputContext } from 'contexts/input';
-import { StyleConsumer, StyleContext } from 'contexts/style';
+import { SizingContext } from 'contexts/sizing';
+import { InputContext } from 'contexts/input';
+import { StyleContext } from 'contexts/style';
 import { useContext } from 'react';
 
-const BannerContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #424242;
-    border: 1px solid blue;
-    width: 300px;
-    height: 300px;
-`;
 const Banner = () => {
     const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
     const { text } = useContext(InputContext).state;
