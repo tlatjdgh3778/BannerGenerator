@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ChromePicker, SketchPicker } from 'react-color';
+import { SketchPicker } from 'react-color';
 import { StyleConsumer } from 'contexts/style';
+import { IconButton } from "@material-ui/core";
+import FormatColorFillOutlinedIcon from '@material-ui/icons/FormatColorFillOutlined';
+import BorderColorOutlinedIcon from '@material-ui/icons/BorderColorOutlined';
 
 const ColorContainer = styled.div`
     display: flex;
-    justify-content: space-between;
-`;
-const MyButton = styled.button`
-    padding: '5px';
-    background: '#fff';
-    border-radius: '1px';
-    box-shadow: '0 0 0 1px rgba(0,0,0,.1)';
-    display: 'inline-block';
-    cursor: 'pointer';
+    justify-content: space-around;
 `;
 
 const SetColor = () => {
     const [fontColor, setFontColor] = useState('#fff');
-    const [bgColor, setBgColor] = useState('#fff');
+    const [bgColor, setBgColor] = useState('#121212');
     const [showFontPicker, setShowFontPicker] = useState(false);
     const [showBgPicker, setShowBgPicker] = useState(false);
 
@@ -26,10 +21,14 @@ const SetColor = () => {
         <StyleConsumer>
             {({ state, actions })=>(
                 <ColorContainer>
-                <div>
-                    <button onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}>
-                        FontColor
-                    </button>
+                <div style={{ position: 'relative' }}>
+                    <IconButton 
+                    onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}
+                    >
+                        <BorderColorOutlinedIcon 
+                        style={{ color: `${fontColor}` }}
+                        fontSize='large'/>
+                    </IconButton>
                     {showFontPicker && (
                         <SketchPicker
                             color={fontColor}
@@ -41,10 +40,12 @@ const SetColor = () => {
                         />
                     )}
                 </div>
-                <div>
-                    <button onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
-                        BgColor
-                    </button>
+                <div style={{ position: 'relative' }}>
+                    <IconButton onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
+                        <FormatColorFillOutlinedIcon 
+                        style={{ color: `${bgColor}` }}
+                        fontSize='large'/>
+                    </IconButton>
                     {showBgPicker && (
                         <SketchPicker
                             color={bgColor}
