@@ -8,7 +8,6 @@ const FooterContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
-    border: 1px solid white;
     height: 5%;
     border-top: 1px solid #C2B7DA;
 `;
