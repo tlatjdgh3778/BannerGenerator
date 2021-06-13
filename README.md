@@ -2,6 +2,8 @@
 
 React를 이용해서 Velog 같은 곳에서 사용할 수 있는 Banner를 만들 수 있는 웹 앱
 
+[사이트 바로가기](https://bannergenerator.netlify.app/)
+
 * React
 * Material UI + Styled-Component
   * Material UI 사용 연습
