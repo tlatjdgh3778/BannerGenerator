@@ -7,13 +7,11 @@ import { StyleContext } from 'contexts/style';
 
 const StyleContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 1.5rem 0;
 `;
 
 const SetFontStyle = () => {
-    // const [fontStyle, setFontStyle] = useState("roboto");
-    // const [fontSize, setFontSize] = useState(14);
-
     const { state, actions } = useContext(StyleContext);
     const fonts = ['Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Do Hyeon', 'Jua'];
     const fontSize = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
@@ -22,11 +20,10 @@ const SetFontStyle = () => {
         <StyleContainer>
                 <>
                 <FormControl>
-                    <Select 
+                    <Select  
                     value={state.fontStyle}
                     onChange={e => {
-                        actions.setFontStyle(e.target.value);
-                        console.log(e.target.value)}}>
+                        actions.setFontStyle(e.target.value);}}>
                         {fonts.map((font, idx) => {
                             return <MenuItem key={idx} value={font}>{font}</MenuItem>
                         })}
