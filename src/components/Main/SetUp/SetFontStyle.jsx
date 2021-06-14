@@ -1,15 +1,9 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import { StyleContext } from 'contexts/style';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { StyleContext } from 'contexts/style';
-
-const StyleContainer = styled.div`
-    display: flex;
-    justify-content: space-around;
-    padding: 1.5rem 0;
-`;
+import * as S from './SetFontStyle.style';
 
 const SetFontStyle = () => {
     const { state, actions } = useContext(StyleContext);
@@ -17,7 +11,7 @@ const SetFontStyle = () => {
     const fontSize = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
     return(
-        <StyleContainer>
+        <S.StyleContainer>
                 <>
                 <FormControl>
                     <Select  
@@ -39,8 +33,7 @@ const SetFontStyle = () => {
                     </Select>
                 </FormControl>
                 </>
-        </StyleContainer>
-        
+        </S.StyleContainer>
     );
 }
 export default SetFontStyle;

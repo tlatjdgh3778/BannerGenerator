@@ -1,30 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-
-const FooterContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    height: 5%;
-    border-top: 1px solid #C2B7DA;
-`;
+import * as S from './Footer.style';
 
 const Footer = () => {
     return(
-        <FooterContainer>
+        <S.FooterContainer>
             <>
             <div>Made by SeongHo Shim</div>
             <IconButton 
             href="https://github.com/tlatjdgh3778/BannerGenerator" 
             target="_blank"
             style={{ color: '#C2B7DA' }}>
-                <GitHubIcon />
+                <S.GitHubIcon />
             </IconButton>
             </>
-        </FooterContainer>
+        </S.FooterContainer>
     )
 }
 

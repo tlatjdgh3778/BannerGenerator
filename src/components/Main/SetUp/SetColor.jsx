@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { SketchPicker } from 'react-color';
 import { StyleConsumer } from 'contexts/style';
 import { IconButton } from "@material-ui/core";
-import FormatColorFillOutlinedIcon from '@material-ui/icons/FormatColorFillOutlined';
-import BorderColorOutlinedIcon from '@material-ui/icons/BorderColorOutlined';
-
-const ColorContainer = styled.div`
-    display: flex;
-    justify-content: space-around;
-`;
+import * as S from './SetColor.style';
 
 const SetColor = () => {
     const [fontColor, setFontColor] = useState('#000');
@@ -20,12 +13,12 @@ const SetColor = () => {
     return(
         <StyleConsumer>
             {({ state, actions })=>(
-                <ColorContainer>
+                <S.ColorContainer>
                 <div style={{ position: 'relative' }}>
                     <IconButton 
                     onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}
                     >
-                        <BorderColorOutlinedIcon 
+                        <S.BorderColorOutlinedIcon 
                         style={{ color: `${fontColor}`,
                         outline:'solid', fontSize: '3rem' }}
                         />
@@ -43,7 +36,7 @@ const SetColor = () => {
                 </div>
                 <div style={{ position: 'relative' }}>
                     <IconButton onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
-                        <FormatColorFillOutlinedIcon 
+                        <S.FormatColorFillOutlinedIcon 
                         style={{ color: `${bgColor}`,
                     outline:'solid', fontSize: '3rem' }}
                         />
@@ -59,7 +52,7 @@ const SetColor = () => {
                         />
                     )}
                 </div>
-                </ColorContainer>
+                </S.ColorContainer>
             )}
         </StyleConsumer>
     );

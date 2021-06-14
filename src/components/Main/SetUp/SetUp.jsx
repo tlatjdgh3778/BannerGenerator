@@ -1,33 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import SetInputText from 'components/Main/SetUp/SetInputText';
 import SetColor from 'components/Main/SetUp/SetColor';
 import SetFontStyle from 'components/Main/SetUp/SetFontStyle';
 import DownloadBtn from 'components/Main/SetUp/DownloadBtn';
-
-const SetUpContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 0;
-    width: 35rem;
-
-    ${(props) => props.theme.device.Tablet} {
-        width: 480px;
-    }
-
-    ${(props) => props.theme.device.Mobile} {
-        width: 320px;
-    }
-`;
+import * as S from './SetUp.style';
 
 const SetUp = () => {
     return(
-        <SetUpContainer>
+        <S.SetUpContainer>
             <SetInputText></SetInputText>
             <SetColor></SetColor>
             <SetFontStyle></SetFontStyle>
             <DownloadBtn></DownloadBtn>
-        </SetUpContainer>
+        </S.SetUpContainer>
     );
 }
 export default SetUp;

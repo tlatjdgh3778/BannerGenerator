@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { SizingContext } from 'contexts/sizing';
 import { InputContext } from 'contexts/input';
 import { StyleContext } from 'contexts/style';
-import { useContext } from 'react';
 
 const Banner = () => {
     const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
