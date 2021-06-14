@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import HeaderTitle from 'components/Header/HeaderTitle';
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -16,12 +14,5 @@ const HeaderContainer = styled.div`
         font-size: ${(props) => props.theme.fontSize.xl};
     }
 `;
-const Header = () => {
-    return(
-        <HeaderContainer>
-            <HeaderTitle></HeaderTitle>
-        </HeaderContainer>
-    )
-}
 
-export default Header;
+export { HeaderContainer };

@@ -1,30 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
 import Banner from 'components/Main/Banner/Banner';
 import Resizing from 'components/Main/Resizing/Resizing';
 import SetUp from 'components/Main/SetUp/SetUp';
 import { SizingProvider } from 'contexts/sizing';
 import { InputProvider } from 'contexts/input';
 import { StyleProvider } from 'contexts/style';
-
-const MainContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-`;
+import * as S from 'components/Main/Main.style';
 
 const Main = () => {
-
     return(
         <StyleProvider>
         <InputProvider>
         <SizingProvider>
-            <MainContainer>
+            <S.MainContainer>
                 <Resizing></Resizing>
                 <Banner></Banner>
                 <SetUp></SetUp>
-            </MainContainer>
+            </S.MainContainer>
         </SizingProvider>
         </InputProvider>
         </StyleProvider>   
