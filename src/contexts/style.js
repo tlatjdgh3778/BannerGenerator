@@ -4,7 +4,7 @@ const StyleContext = createContext({
     state: {
         fontColor: "#000",
         bgColor: "#C2B7DA",
-        fontStyle: "Roboto",
+        fontStyle: "Do Hyeon",
         fontSize: 40,
     },
     actions: {
