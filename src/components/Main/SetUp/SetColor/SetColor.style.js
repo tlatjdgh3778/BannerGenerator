@@ -7,4 +7,8 @@ const ColorContainer = styled.div`
     justify-content: space-around;
 `;
 
-export { ColorContainer, FormatColorFillOutlinedIcon, BorderColorOutlinedIcon };
+const PickerBox = styled.div`
+    position: relative;
+`;
+
+export { ColorContainer, PickerBox, FormatColorFillOutlinedIcon, BorderColorOutlinedIcon };
