@@ -4,6 +4,7 @@ import { SizingContext } from 'contexts/sizing';
 import * as S from './ResizingWidth.style';
 
 const ResizingWidth = () => {
+    console.log('ResizingWidth Render');
     const { state, actions } = useContext(SizingContext);
 
     return(

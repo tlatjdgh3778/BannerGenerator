@@ -4,6 +4,8 @@ import { SizingContext } from 'contexts/sizing';
 import * as S from './ResizingHeight.style';
 
 const ResizingHeight = () => {
+    console.log('ResizingHeight Render');
+    
     const { state, actions } = useContext(SizingContext);
 
     return(

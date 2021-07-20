@@ -6,6 +6,7 @@ import DownloadBtn from './DownloadBtn/DownloadBtn';
 import * as S from './SetUp.style';
 
 const SetUp = () => {
+    console.log('SetUp Render');
     return(
         <S.SetUpContainer>
             <SetInputText></SetInputText>

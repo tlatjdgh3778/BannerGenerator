@@ -5,6 +5,7 @@ import { IconButton } from "@material-ui/core";
 import * as S from './SetColor.style';
 
 const SetColor = () => {
+    console.log('SetColor Render');
     const [fontColor, setFontColor] = useState('#000');
     const [bgColor, setBgColor] = useState('#C2B7DA');
     const [showFontPicker, setShowFontPicker] = useState(false);

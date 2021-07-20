@@ -2,6 +2,8 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 const DownloadBtn = () => {
+    console.log('Downloadtn Render');
+    
     const download = () => {
         const canvas = document.getElementById('canvasBanner');
         const url = canvas.toDataURL("image/png");

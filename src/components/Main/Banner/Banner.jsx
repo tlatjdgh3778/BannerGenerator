@@ -4,6 +4,8 @@ import { InputContext } from 'contexts/input';
 import { StyleContext } from 'contexts/style';
 
 const Banner = () => {
+    console.log('Banner Render');
+    
     const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
     const { text } = useContext(InputContext).state;
     const { width, height } = useContext(SizingContext).state;

@@ -8,6 +8,7 @@ import { StyleProvider } from 'contexts/style';
 import * as S from 'components/Main/Main.style';
 
 const Main = () => {
+    console.log('Main Render');
     return(
         <StyleProvider>
         <InputProvider>

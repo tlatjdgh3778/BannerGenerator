@@ -3,6 +3,8 @@ import { IconButton } from '@material-ui/core';
 import * as S from './Footer.style';
 
 const Footer = () => {
+    console.log('Footer Render');
+    
     return(
         <S.FooterContainer>
             <>

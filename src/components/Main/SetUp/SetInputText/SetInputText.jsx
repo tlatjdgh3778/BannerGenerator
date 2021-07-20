@@ -3,6 +3,7 @@ import { InputContext } from 'contexts/input';
 import * as S from './SetInputText.style';
 
 const SetInputText = () => {
+    console.log('SetInputText Render');
     const { state, actions } = useContext(InputContext);
     
     return(
