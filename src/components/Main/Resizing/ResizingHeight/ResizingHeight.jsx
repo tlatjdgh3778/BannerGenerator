@@ -5,18 +5,20 @@ import * as S from './ResizingHeight.style';
 
 const ResizingHeight = () => {
     console.log('ResizingHeight Render');
-    
-    const { state, actions } = useContext(SizingContext);
+    const { height } = useContext(SizingContext).state;
+    const { setHeight } = useContext(SizingContext).actions;
+
+    const resizeHeight = height => {
+        setHeight(height);
+    };
 
     return(
         <StylesProvider injectFirst>
         <S.CutstomTextField 
         label="HEIGHT"
-        value={state.height}
+        value={height}
         variant="outlined"
-        onChange={e => {
-            actions.setHeight(e.target.value);
-        }}>
+        onChange={e => resizeHeight(e.target.value)}>
         </S.CutstomTextField>
         </StylesProvider>
     );

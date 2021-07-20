@@ -5,17 +5,20 @@ import * as S from './ResizingWidth.style';
 
 const ResizingWidth = () => {
     console.log('ResizingWidth Render');
-    const { state, actions } = useContext(SizingContext);
+    const { width } = useContext(SizingContext).state;
+    const { setWidth } = useContext(SizingContext).actions;
+
+    const resizeWidth = width => {
+        setWidth(width);
+    };
 
     return(
         <StylesProvider injectFirst>
             <S.CutstomTextField 
             label="WIDTH"
-            value={state.width}
+            value={width}
             variant="outlined"
-            onChange={e => {
-                actions.setWidth(e.target.value);
-            }}>
+            onChange={e => resizeWidth(e.target.value)}>
             </S.CutstomTextField>
         </StylesProvider>
     );
