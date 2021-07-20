@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SketchPicker } from 'react-color';
-import { StyleConsumer } from 'contexts/style';
+import { StyleContext } from 'contexts/style';
 import { IconButton } from "@material-ui/core";
 import * as S from './SetColor.style';
 
 const SetColor = () => {
     console.log('SetColor Render');
-    const [fontColor, setFontColor] = useState('#000');
-    const [bgColor, setBgColor] = useState('#C2B7DA');
+    const { fontColor, bgColor } = useContext(StyleContext).state;
+    const { setFontColor, setBgColor } = useContext(StyleContext).actions;
+
     const [showFontPicker, setShowFontPicker] = useState(false);
     const [showBgPicker, setShowBgPicker] = useState(false);
 
     return(
-        <StyleConsumer>
-            {({ state, actions })=>(
-                <S.ColorContainer>
-                <div style={{ position: 'relative' }}>
+        <>
+            <S.ColorContainer>
+                <S.PickerBox>
                     <IconButton 
                     onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}
                     >
@@ -27,15 +27,11 @@ const SetColor = () => {
                     {showFontPicker && (
                         <SketchPicker
                             color={fontColor}
-                            onChange={updateColor => {
-                                actions.setFontColor(updateColor.hex);
-                                setFontColor(updateColor.hex);
-                            }
-                            }
+                            onChange={updateColor => setFontColor(updateColor.hex)}
                         />
                     )}
-                </div>
-                <div style={{ position: 'relative' }}>
+                </S.PickerBox>
+                <S.PickerBox>
                     <IconButton onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
                         <S.FormatColorFillOutlinedIcon 
                         style={{ color: `${bgColor}`,
@@ -45,17 +41,12 @@ const SetColor = () => {
                     {showBgPicker && (
                         <SketchPicker
                             color={bgColor}
-                            onChange={updateColor => {
-                                actions.setBgColor(updateColor.hex);
-                                setBgColor(updateColor.hex);
-                            }
-                            }
+                            onChange={updateColor => {setBgColor(updateColor.hex)}}
                         />
                     )}
-                </div>
-                </S.ColorContainer>
-            )}
-        </StyleConsumer>
+                </S.PickerBox>
+            </S.ColorContainer>
+        </>
     );
 }
 
