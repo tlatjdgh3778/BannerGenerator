@@ -17,7 +17,7 @@ const Footer = () => {
             </IconButton>
             </>
         </S.FooterContainer>
-    )
+    );
 }
 
 export default Footer;

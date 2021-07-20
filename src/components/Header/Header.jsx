@@ -7,7 +7,7 @@ const Header = () => {
         <S.HeaderContainer>
             <div>BannerGenerator</div>
         </S.HeaderContainer>
-    )
+    );
 }
 
 export default Header;
