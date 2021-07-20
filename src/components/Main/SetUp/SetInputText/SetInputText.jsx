@@ -4,14 +4,15 @@ import * as S from './SetInputText.style';
 
 const SetInputText = () => {
     console.log('SetInputText Render');
-    const { state, actions } = useContext(InputContext);
+    const { text } = useContext(InputContext).state;
+    const { setText } = useContext(InputContext).actions;
     
     return(
         <S.CutstomTextField 
             placeholder="Input Text Here"
-            value={state.text}
+            value={text}
             onChange={e => {
-                actions.setText(e.target.value);
+                setText(e.target.value);
         }}>
         </S.CutstomTextField>
     );
