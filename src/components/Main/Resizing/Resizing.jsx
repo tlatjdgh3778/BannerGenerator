@@ -1,6 +1,6 @@
 import React from 'react';
-import ResizingWidth from 'components/Main/Resizing/ResizingWidth';
-import ResizingHeight from 'components/Main/Resizing/ResizingHeight';
+import ResizingWidth from './ResizingWidth/ResizingWidth';
+import ResizingHeight from './ResizingHeight/ResizingHeight';
 import * as S from './Resizing.style';
 
 const Resizing = () => {

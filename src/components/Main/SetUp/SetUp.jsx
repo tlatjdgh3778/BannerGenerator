@@ -1,8 +1,8 @@
 import React from 'react';
-import SetInputText from 'components/Main/SetUp/SetInputText';
-import SetColor from 'components/Main/SetUp/SetColor';
-import SetFontStyle from 'components/Main/SetUp/SetFontStyle';
-import DownloadBtn from 'components/Main/SetUp/DownloadBtn';
+import SetInputText from './SetInputText/SetInputText';
+import SetColor from './SetColor/SetColor';
+import SetFontStyle from './SetFontStyle/SetFontStyle';
+import DownloadBtn from './DownloadBtn/DownloadBtn';
 import * as S from './SetUp.style';
 
 const SetUp = () => {
