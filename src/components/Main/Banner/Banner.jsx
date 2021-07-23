@@ -1,13 +1,12 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { SizingContext } from 'contexts/sizing';
-import { InputContext } from 'contexts/input';
 import { StyleContext } from 'contexts/style';
+import { connect } from 'react-redux';
 
-const Banner = () => {
+const Banner = (props) => {
     console.log('Banner Render');
     
     const { bgColor, fontColor, fontSize, fontStyle } = useContext(StyleContext).state;
-    const { text } = useContext(InputContext).state;
     const { width, height } = useContext(SizingContext).state;
 
     const canvasRef = useRef(null);
@@ -27,9 +26,9 @@ const Banner = () => {
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillStyle = fontColor;
-            ctx.fillText(text, x, y);
+            ctx.fillText(props.text, x, y);
     }, [
-        text,
+        props.text,
         height,
         width,
         fontSize,
@@ -46,4 +45,13 @@ const Banner = () => {
         ></canvas>
     );
 }
-export default Banner;
+
+const mapStateToProps = state => {
+    return {
+        text: state.text
+    }
+}
+
+export default connect(
+    mapStateToProps,
+)(Banner);

@@ -1,21 +1,38 @@
-import React, { useContext } from 'react';
-import { InputContext } from 'contexts/input';
+import React from 'react';
 import * as S from './SetInputText.style';
+import { connect } from 'react-redux';
+import { addInputText } from 'redux/index';
 
-const SetInputText = () => {
+
+const SetInputText = (props) => {
     console.log('SetInputText Render');
-    const { text } = useContext(InputContext).state;
-    const { setText } = useContext(InputContext).actions;
     
     return(
+        <>
         <S.CutstomTextField 
             placeholder="Input Text Here"
-            value={text}
+            value={props.text}
             onChange={e => {
-                setText(e.target.value);
+                props.addInputText(e.target.value);
         }}>
         </S.CutstomTextField>
+        </>
     );
 }
 
-export default SetInputText;
+const mapStateToProps = (state) => {
+    return {
+        text: state.text
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addInputText: (value) => dispatch(addInputText(value))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SetInputText);
