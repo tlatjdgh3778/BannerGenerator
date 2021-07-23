@@ -1,16 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { StylesProvider } from '@material-ui/core';
-import { SizingContext } from 'contexts/sizing';
 import * as S from './ResizingHeight.style';
+import { connect } from 'react-redux';
+import { resizeHeight } from 'redux/index';
 
-const ResizingHeight = () => {
+const ResizingHeight = ({ height, resizeHeight }) => {
     console.log('ResizingHeight Render');
-    const { height } = useContext(SizingContext).state;
-    const { setHeight } = useContext(SizingContext).actions;
-
-    const resizeHeight = height => {
-        setHeight(height);
-    };
 
     return(
         <StylesProvider injectFirst>
@@ -23,4 +18,20 @@ const ResizingHeight = () => {
         </StylesProvider>
     );
 }
-export default ResizingHeight;
+
+const mapStateToProps = ({ sizing }) => {
+    return {
+        height: sizing.height
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        resizeHeight: (height) => dispatch(resizeHeight(height))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ResizingHeight);
