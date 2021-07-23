@@ -23,6 +23,7 @@ React를 이용해서 Velog 같은 곳에서 사용할 수 있는 Banner를 만�
 
 ## 기술 스택
 * React
+* React-redux
 * Styled-Component + Material UI
 * Figma
 
@@ -30,3 +31,9 @@ React를 이용해서 Velog 같은 곳에서 사용할 수 있는 Banner를 만�
 * Material UI를 사용하는 방법
 * Figma를 사용하는 방법
 * Context API를 사용해서 상태 관리하는 방법
+* react-redux를 사용해서 전역 상태 관리하는 방법
+
+### update 2021.07.23
+* Context API대신 react-redux로 상태관리 하도록 리팩토링 함
+* 미들웨어를 사용하진 않고 전역 상태관리만 하는 거라 별다른 변경점은 없지만 redux도 공부할 겸 리팩토링을 해보았다.
+* 다른 프로젝트들도 redux로 변경 예정
