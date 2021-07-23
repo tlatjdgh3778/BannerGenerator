@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
-import { StyleContext } from 'contexts/style';
 import { IconButton } from "@material-ui/core";
 import * as S from './SetColor.style';
+import { connect } from 'react-redux';
+import { changeFontColor, changeBgColor } from 'redux/index';
 
-const SetColor = () => {
+const SetColor = ({ fontColor, bgColor, changeFontColor, changeBgColor }) => {
     console.log('SetColor Render');
-    const { fontColor, bgColor } = useContext(StyleContext).state;
-    const { setFontColor, setBgColor } = useContext(StyleContext).actions;
 
     const [showFontPicker, setShowFontPicker] = useState(false);
     const [showBgPicker, setShowBgPicker] = useState(false);
@@ -27,7 +26,7 @@ const SetColor = () => {
                     {showFontPicker && (
                         <SketchPicker
                             color={fontColor}
-                            onChange={updateColor => setFontColor(updateColor.hex)}
+                            onChange={updateColor => changeFontColor(updateColor.hex)}
                         />
                     )}
                 </S.PickerBox>
@@ -41,7 +40,7 @@ const SetColor = () => {
                     {showBgPicker && (
                         <SketchPicker
                             color={bgColor}
-                            onChange={updateColor => {setBgColor(updateColor.hex)}}
+                            onChange={updateColor => changeBgColor(updateColor.hex)}
                         />
                     )}
                 </S.PickerBox>
@@ -50,5 +49,21 @@ const SetColor = () => {
     );
 }
 
+const mapStateToProps = ({ style }) => {
+    return {
+        fontColor: style.fontColor,
+        bgColor: style.bgColor
+    }
+}
 
-export default SetColor;
+const mapDispatchToProps = dispatch => {
+    return {
+        changeFontColor: (color) => dispatch(changeFontColor(color)),
+        changeBgColor: (color) => dispatch(changeBgColor(color))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SetColor);

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import { StyleContext } from 'contexts/style';
+import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import * as S from './SetFontStyle.style';
+import { connect } from 'react-redux';
+import { changeFontStyle, changeFontSize } from 'redux/index';
 
-const SetFontStyle = () => {
+const SetFontStyle = ({ fontStyle, fontSize, changeFontStyle, changeFontSize }) => {
     console.log('SetFontStyle Render');
-    const { fontStyle, fontSize } = useContext(StyleContext).state;
-    const { setFontStyle, setFontSize } = useContext(StyleContext).actions;
+
     const fonts = ['Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Do Hyeon', 'Jua'];
     const fontSizes = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
@@ -18,7 +18,7 @@ const SetFontStyle = () => {
                 <FormControl>
                     <Select  
                     value={fontStyle}
-                    onChange={e => setFontStyle(e.target.value)}>
+                    onChange={e => changeFontStyle(e.target.value)}>
                     {fonts.map((font) => {
                         return <MenuItem key={font} value={font}>{font}</MenuItem>
                     })}
@@ -27,7 +27,7 @@ const SetFontStyle = () => {
                 <FormControl>
                     <Select 
                     value={fontSize}
-                    onChange={e => setFontSize(e.target.value)}>
+                    onChange={e => changeFontSize(e.target.value)}>
                         {fontSizes.map((size) => {
                             return <MenuItem key={size} value={size}>{size}</MenuItem>
                         })}
@@ -37,4 +37,22 @@ const SetFontStyle = () => {
         </S.StyleContainer>
     );
 }
-export default SetFontStyle;
+
+const mapStateToProps = ({ style }) => {
+    return {
+        fontStyle: style.fontStyle,
+        fontSize: style.fontSize,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeFontStyle: (style) => dispatch(changeFontStyle(style)),
+        changeFontSize: (size) => dispatch(changeFontSize(size)),
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SetFontStyle);
