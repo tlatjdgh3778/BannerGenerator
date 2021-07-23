@@ -4,24 +4,24 @@ import * as S from './ResizingWidth.style';
 import { connect } from 'react-redux';
 import { resizeWidth } from 'redux/index';
 
-const ResizingWidth = (props) => {
+const ResizingWidth = ({ width, resizeWidth }) => {
     console.log('ResizingWidth Render');
 
     return(
         <StylesProvider injectFirst>
             <S.CutstomTextField 
             label="WIDTH"
-            value={props.width}
+            value={width}
             variant="outlined"
-            onChange={e => props.resizeWidth(e.target.value)}>
+            onChange={e => resizeWidth(e.target.value)}>
             </S.CutstomTextField>
         </StylesProvider>
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ sizing }) => {
     return {
-        width: state.sizing.width
+        width: sizing.width
     }
 }
 

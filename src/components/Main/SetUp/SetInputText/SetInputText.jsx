@@ -4,25 +4,25 @@ import { connect } from 'react-redux';
 import { addInputText } from 'redux/index';
 
 
-const SetInputText = (props) => {
+const SetInputText = ({ text, addInputText }) => {
     console.log('SetInputText Render');
     
     return(
         <>
         <S.CutstomTextField 
             placeholder="Input Text Here"
-            value={props.text}
+            value={text}
             onChange={e => {
-                props.addInputText(e.target.value);
+                addInputText(e.target.value);
         }}>
         </S.CutstomTextField>
         </>
     );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ input }) => {
     return {
-        text: state.input.text
+        text: input.text
     }
 }
 
