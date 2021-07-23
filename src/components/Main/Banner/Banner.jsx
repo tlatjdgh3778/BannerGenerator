@@ -20,7 +20,7 @@ const Banner = (props) => {
             const y = canvas.height / 2;
 
             ctx.fillStyle = bgColor;
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillRect(0, 0, props.width, height);
             ctx.fill();
 
             ctx.textAlign = "center";
@@ -30,7 +30,7 @@ const Banner = (props) => {
     }, [
         props.text,
         height,
-        width,
+        props.width,
         fontSize,
         fontStyle,
         fontColor,
@@ -40,7 +40,7 @@ const Banner = (props) => {
         <canvas
             ref={canvasRef}
             id='canvasBanner'
-            width={width}
+            width={props.width}
             height={height}
         ></canvas>
     );
@@ -48,7 +48,8 @@ const Banner = (props) => {
 
 const mapStateToProps = state => {
     return {
-        text: state.input.text
+        text: state.input.text,
+        width: state.sizing.width
     }
 }
 
