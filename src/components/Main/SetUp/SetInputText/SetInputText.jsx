@@ -22,7 +22,7 @@ const SetInputText = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        text: state.text
+        text: state.input.text
     }
 }
 
