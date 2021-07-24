@@ -1,2 +1,0 @@
-export const RESIZE_WIDTH = 'RESIZE_WIDTH' 
-export const RESIZE_HEIGHT = 'RESIZE_HEIGHT' 
