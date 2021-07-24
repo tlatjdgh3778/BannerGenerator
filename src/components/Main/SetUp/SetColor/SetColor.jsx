@@ -3,7 +3,7 @@ import { SketchPicker } from 'react-color';
 import { IconButton } from "@material-ui/core";
 import * as S from './SetColor.style';
 import { connect } from 'react-redux';
-import { changeFontColor, changeBgColor } from 'redux/index';
+import { changeFontColor, changeBgColor } from 'store/moduels/style';
 
 const SetColor = ({ fontColor, bgColor, changeFontColor, changeBgColor }) => {
     console.log('SetColor Render');

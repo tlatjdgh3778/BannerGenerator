@@ -2,7 +2,7 @@ import React from 'react';
 import { StylesProvider } from '@material-ui/core';
 import * as S from './ResizingWidth.style';
 import { connect } from 'react-redux';
-import { resizeWidth } from 'redux/index';
+import { resizeWidth } from 'store/moduels/sizing';
 
 const ResizingWidth = ({ width, resizeWidth }) => {
     console.log('ResizingWidth Render');

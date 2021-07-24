@@ -2,7 +2,7 @@ import React from 'react';
 import { StylesProvider } from '@material-ui/core';
 import * as S from './ResizingHeight.style';
 import { connect } from 'react-redux';
-import { resizeHeight } from 'redux/index';
+import { resizeHeight } from 'store/moduels/sizing';
 
 const ResizingHeight = ({ height, resizeHeight }) => {
     console.log('ResizingHeight Render');

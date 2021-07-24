@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import * as S from './SetFontStyle.style';
 import { connect } from 'react-redux';
-import { changeFontStyle, changeFontSize } from 'redux/index';
+import { changeFontStyle, changeFontSize } from 'store/moduels/style';
 
 const SetFontStyle = ({ fontStyle, fontSize, changeFontStyle, changeFontSize }) => {
     console.log('SetFontStyle Render');

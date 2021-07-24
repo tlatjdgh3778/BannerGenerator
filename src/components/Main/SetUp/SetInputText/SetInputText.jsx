@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './SetInputText.style';
 import { connect } from 'react-redux';
-import { addInputText } from 'redux/index';
+import { addInputText } from 'store/moduels/input';
 
 
 const SetInputText = ({ text, addInputText }) => {
