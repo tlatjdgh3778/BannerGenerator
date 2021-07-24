@@ -37,3 +37,6 @@ React를 이용해서 Velog 같은 곳에서 사용할 수 있는 Banner를 만�
 * Context API대신 react-redux로 상태관리 하도록 리팩토링 함
 * 미들웨어를 사용하진 않고 전역 상태관리만 하는 거라 별다른 변경점은 없지만 redux도 공부할 겸 리팩토링을 해보았다.
 * 다른 프로젝트들도 redux로 변경 예정
+
+### update 2021.07.24
+* ducks pattern 적용
