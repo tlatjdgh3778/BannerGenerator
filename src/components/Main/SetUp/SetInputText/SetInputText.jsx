@@ -1,38 +1,26 @@
-import React from 'react';
-import * as S from './SetInputText.style';
-import { connect } from 'react-redux';
-import { addInputText } from 'store/moduels/input';
+import React from "react";
+import * as S from "./SetInputText.style";
+import { useSelector, useDispatch } from "react-redux";
+import { addInputText } from "store/moduels/input";
 
+const SetInputText = () => {
+    console.log("SetInputText Render");
+    const dispatch = useDispatch();
+    const text = useSelector(({ input }) => input.text);
 
-const SetInputText = ({ text, addInputText }) => {
-    console.log('SetInputText Render');
-    
-    return(
+    const changeInputText = (e) => {
+        dispatch(addInputText(e.target.value));
+    };
+
+    return (
         <>
-        <S.CutstomTextField 
-            placeholder="Input Text Here"
-            value={text}
-            onChange={e => {
-                addInputText(e.target.value);
-        }}>
-        </S.CutstomTextField>
+            <S.CutstomTextField
+                placeholder="Input Text Here"
+                value={text}
+                onChange={changeInputText}
+            ></S.CutstomTextField>
         </>
     );
-}
+};
 
-const mapStateToProps = ({ input }) => {
-    return {
-        text: input.text
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addInputText: (value) => dispatch(addInputText(value))
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SetInputText);
+export default SetInputText;
