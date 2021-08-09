@@ -1,37 +1,28 @@
-import React from 'react';
-import { StylesProvider } from '@material-ui/core';
-import * as S from './ResizingHeight.style';
-import { connect } from 'react-redux';
-import { resizeHeight } from 'store/moduels/sizing';
+import React from "react";
+import { StylesProvider } from "@material-ui/core";
+import * as S from "./ResizingHeight.style";
+import { useSelector, useDispatch } from "react-redux";
+import { resizeHeight } from "store/moduels/sizing";
 
-const ResizingHeight = ({ height, resizeHeight }) => {
-    console.log('ResizingHeight Render');
+const ResizingHeight = () => {
+    console.log("ResizingHeight Render");
+    const dispatch = useDispatch();
+    const height = useSelector(({ sizing }) => sizing.height);
 
-    return(
+    const onChange = (e) => {
+        dispatch(resizeHeight(e.target.value));
+    };
+
+    return (
         <StylesProvider injectFirst>
-        <S.CutstomTextField 
-        label="HEIGHT"
-        value={height}
-        variant="outlined"
-        onChange={e => resizeHeight(e.target.value)}>
-        </S.CutstomTextField>
+            <S.CutstomTextField
+                label="HEIGHT"
+                value={height}
+                variant="outlined"
+                onChange={onChange}
+            ></S.CutstomTextField>
         </StylesProvider>
     );
-}
+};
 
-const mapStateToProps = ({ sizing }) => {
-    return {
-        height: sizing.height
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        resizeHeight: (height) => dispatch(resizeHeight(height))
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ResizingHeight);
+export default ResizingHeight;

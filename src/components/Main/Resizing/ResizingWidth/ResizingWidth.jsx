@@ -1,37 +1,28 @@
-import React from 'react';
-import { StylesProvider } from '@material-ui/core';
-import * as S from './ResizingWidth.style';
-import { connect } from 'react-redux';
-import { resizeWidth } from 'store/moduels/sizing';
+import React from "react";
+import { StylesProvider } from "@material-ui/core";
+import * as S from "./ResizingWidth.style";
+import { useSelector, useDispatch } from "react-redux";
+import { resizeWidth } from "store/moduels/sizing";
 
-const ResizingWidth = ({ width, resizeWidth }) => {
-    console.log('ResizingWidth Render');
+const ResizingWidth = () => {
+    console.log("ResizingWidth Render");
+    const dispatch = useDispatch();
+    const width = useSelector(({ sizing }) => sizing.width);
 
-    return(
+    const onChange = (e) => {
+        dispatch(resizeWidth(e.target.value));
+    };
+
+    return (
         <StylesProvider injectFirst>
-            <S.CutstomTextField 
-            label="WIDTH"
-            value={width}
-            variant="outlined"
-            onChange={e => resizeWidth(e.target.value)}>
-            </S.CutstomTextField>
+            <S.CutstomTextField
+                label="WIDTH"
+                value={width}
+                variant="outlined"
+                onChange={onChange}
+            ></S.CutstomTextField>
         </StylesProvider>
     );
-}
+};
 
-const mapStateToProps = ({ sizing }) => {
-    return {
-        width: sizing.width
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        resizeWidth: (width) => dispatch(resizeWidth(width))
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ResizingWidth);
+export default ResizingWidth;
