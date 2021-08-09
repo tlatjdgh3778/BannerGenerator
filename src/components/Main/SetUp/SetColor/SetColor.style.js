@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import FormatColorFillOutlinedIcon from '@material-ui/icons/FormatColorFillOutlined';
-import BorderColorOutlinedIcon from '@material-ui/icons/BorderColorOutlined';
+import styled from "styled-components";
+import FormatColorFillOutlinedIcon from "@material-ui/icons/FormatColorFillOutlined";
+import BorderColorOutlinedIcon from "@material-ui/icons/BorderColorOutlined";
 
 const ColorContainer = styled.div`
     display: flex;
@@ -11,4 +11,8 @@ const PickerBox = styled.div`
     position: relative;
 `;
 
-export { ColorContainer, PickerBox, FormatColorFillOutlinedIcon, BorderColorOutlinedIcon };
+const FontPickerIcon = styled(BorderColorOutlinedIcon)``;
+
+const BgPickerIcon = styled(FormatColorFillOutlinedIcon)``;
+
+export { ColorContainer, PickerBox, BgPickerIcon, FontPickerIcon };
