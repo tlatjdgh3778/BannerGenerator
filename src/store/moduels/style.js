@@ -1,75 +1,67 @@
 // sizing module
-// ducks pattern 
+// ducks pattern
+import produce from "immer"; // 불변성 관리 라이브러리
 
 // types
-export const CHANGE_FONT_COLOR = 'CHANGE_FONT_COLOR'
-export const CHANGE_BG_COLOR = 'CHANGE_BG_COLOR'
-export const CHANGE_FONT_STYLE = 'CHANGE_FONT_STYLE'
-export const CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE'
+export const CHANGE_FONT_COLOR = "CHANGE_FONT_COLOR";
+export const CHANGE_BG_COLOR = "CHANGE_BG_COLOR";
+export const CHANGE_FONT_STYLE = "CHANGE_FONT_STYLE";
+export const CHANGE_FONT_SIZE = "CHANGE_FONT_SIZE";
 
-
-// actions 
+// actions
 export const changeFontColor = (color) => {
     return {
         type: CHANGE_FONT_COLOR,
-        payload: color
-    }
-}
+        payload: color,
+    };
+};
 
 export const changeBgColor = (color) => {
     return {
         type: CHANGE_BG_COLOR,
-        payload: color
-    }
-}
+        payload: color,
+    };
+};
 
 export const changeFontStyle = (style) => {
     return {
         type: CHANGE_FONT_STYLE,
-        payload: style
-    }
-}
+        payload: style,
+    };
+};
 
 export const changeFontSize = (size) => {
     return {
         type: CHANGE_FONT_SIZE,
-        payload: size
-    }
-}
+        payload: size,
+    };
+};
 
 // reducer
 const initialState = {
-    fontColor: '#000',
-    bgColor: '#C2B7DA',
-    fontStyle: 'Do Hyeon',
-    fontSize: '40',
-}
+    fontColor: "#000",
+    bgColor: "#C2B7DA",
+    fontStyle: "Do Hyeon",
+    fontSize: "40",
+};
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case CHANGE_FONT_COLOR:
-            return {
-                ...state,
-                fontColor: action.payload
-            }
-        case CHANGE_BG_COLOR:
-            return {
-                ...state,
-                bgColor: action.payload
-            }
-        case CHANGE_FONT_STYLE:
-            return {
-                ...state,
-                fontStyle: action.payload
-            }
-        case CHANGE_FONT_SIZE:
-            return {
-                ...state,
-                fontSize: action.payload
-            }
-        default:
-            return state
-    }
+export default function reducer(state = initialState, action) {
+    return produce(state, (draft) => {
+        switch (action.type) {
+            case CHANGE_FONT_COLOR:
+                draft.fontColor = action.payload;
+                break;
+            case CHANGE_BG_COLOR:
+                draft.bgColor = action.payload;
+                break;
+            case CHANGE_FONT_STYLE:
+                draft.fontStyle = action.payload;
+                break;
+            case CHANGE_FONT_SIZE:
+                draft.fontSize = action.payload;
+                break;
+            default:
+                break;
+        }
+    });
 }
-
-export default reducer;
