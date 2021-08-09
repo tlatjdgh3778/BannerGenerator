@@ -1,69 +1,65 @@
-import React, { useState } from 'react';
-import { SketchPicker } from 'react-color';
+import React, { useState } from "react";
+import { SketchPicker } from "react-color";
 import { IconButton } from "@material-ui/core";
-import * as S from './SetColor.style';
-import { connect } from 'react-redux';
-import { changeFontColor, changeBgColor } from 'store/moduels/style';
+import * as S from "./SetColor.style";
+import { useSelector, useDispatch } from "react-redux";
+import { changeFontColor, changeBgColor } from "store/moduels/style";
 
-const SetColor = ({ fontColor, bgColor, changeFontColor, changeBgColor }) => {
-    console.log('SetColor Render');
+const SetColor = () => {
+    console.log("SetColor Render");
+    const dispatch = useDispatch();
+    const fontColor = useSelector(({ style }) => style.fontColor);
+    const bgColor = useSelector(({ style }) => style.bgColor);
 
     const [showFontPicker, setShowFontPicker] = useState(false);
     const [showBgPicker, setShowBgPicker] = useState(false);
 
-    return(
+    const toggleFontPicker = () => {
+        setShowFontPicker((showFontPicker) => !showFontPicker);
+    };
+
+    const toggleBgPicker = () => {
+        setShowBgPicker((showBgPicker) => !showBgPicker);
+    };
+
+    const onChangeFontColor = (updateColor) => {
+        dispatch(changeFontColor(updateColor.hex));
+    };
+
+    const onChangeBgColor = (updateColor) => {
+        dispatch(changeBgColor(updateColor.hex));
+    };
+
+    const fontColorStyle = {
+        color: `${fontColor}`,
+        fontSize: "3rem",
+    };
+
+    const bgColorStyle = {
+        color: `${bgColor}`,
+        fontSize: "3rem",
+    };
+
+    return (
         <>
             <S.ColorContainer>
                 <S.PickerBox>
-                    <IconButton 
-                    onClick={() => setShowFontPicker(showFontPicker => !showFontPicker)}
-                    >
-                        <S.BorderColorOutlinedIcon 
-                        style={{ color: `${fontColor}`,
-                        outline:'solid', fontSize: '3rem' }}
-                        />
+                    <IconButton onClick={toggleFontPicker}>
+                        <S.FontPickerIcon style={fontColorStyle} />
                     </IconButton>
                     {showFontPicker && (
-                        <SketchPicker
-                            color={fontColor}
-                            onChange={updateColor => changeFontColor(updateColor.hex)}
-                        />
+                        <SketchPicker color={fontColor} onChange={onChangeFontColor} />
                     )}
                 </S.PickerBox>
                 <S.PickerBox>
-                    <IconButton onClick={() => setShowBgPicker(showBgPicker => !showBgPicker)}>
-                        <S.FormatColorFillOutlinedIcon 
-                        style={{ color: `${bgColor}`,
-                    outline:'solid', fontSize: '3rem' }}
-                        />
+                    <IconButton onClick={toggleBgPicker}>
+                        <S.BgPickerIcon style={bgColorStyle} />
                     </IconButton>
-                    {showBgPicker && (
-                        <SketchPicker
-                            color={bgColor}
-                            onChange={updateColor => changeBgColor(updateColor.hex)}
-                        />
-                    )}
+                    {showBgPicker && <SketchPicker color={bgColor} onChange={onChangeBgColor} />}
                 </S.PickerBox>
             </S.ColorContainer>
         </>
     );
-}
+};
 
-const mapStateToProps = ({ style }) => {
-    return {
-        fontColor: style.fontColor,
-        bgColor: style.bgColor
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        changeFontColor: (color) => dispatch(changeFontColor(color)),
-        changeBgColor: (color) => dispatch(changeBgColor(color))
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SetColor);
+export default SetColor;
