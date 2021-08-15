@@ -6,9 +6,9 @@ const GlobalStyle = createGlobalStyle`
 :root {
     --main-color: #C2B7DA;
     --bg-color: #EFE6E6;
+    font-family: 'Do Hyeon', 'Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Jua', sans-serif;
 }
 * {
-    font-family:  'Do Hyeon', 'Roboto', 'Noto Sans KR', 'Nanum Gothic', 'Merriweather', 'Hammersmith One', 'Source Code Pro', 'Anton', 'Jua', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -43,21 +43,21 @@ body {
 }
 
 .MuiInputBase-input {
-    font-family: 'Do Hyeon';
     text-align: center;
+    font-family: 'Do Hyeon';
 }
 
 // WIDTH, HEIGT LABEL속성
 .MuiFormLabel-root {
-    color: var(--main-color)var(--main-color)
+    color: var(--main-color)
 }
 .MuiFormLabel-root.Mui-focused {
-    color: var(--main-color)var(--main-color)
+    color: var(--main-color)
 }
 
 .MuiOutlinedInput-root {
     & .MuiOutlinedInput-notchedOutline {
-        border: 2px solid var(--main-color)var(--main-color)
+        border: 2px solid var(--main-color)
     }
     &:hover .MuiOutlinedInput-notchedOutline {
         border-color: var(--main-color);
